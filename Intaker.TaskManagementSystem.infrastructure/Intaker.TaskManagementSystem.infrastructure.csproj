@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Intaker.TaskManagementSystem.domain\Intaker.TaskManagementSystem.domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EntityFramework\Migrations\" />
+    <Folder Include="EntityFramework\TaskManagement\Dtos\" />
   </ItemGroup>
 
 </Project>

@@ -7,12 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="MediatR.Extensions.FluentValidation.AspNetCore" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Scalar.AspNetCore" Version="2.0.36" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intaker.TaskManagementSystem.domain\Intaker.TaskManagementSystem.domain.csproj" />
     <ProjectReference Include="..\Intaker.TaskManagementSystem.infrastructure\Intaker.TaskManagementSystem.infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\TaskManagement\Commands\" />
+    <Folder Include="Controllers\TaskManagement\Queries\" />
   </ItemGroup>
 
 </Project>
