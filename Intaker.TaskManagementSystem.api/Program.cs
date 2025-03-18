@@ -1,3 +1,10 @@
+using Intaker.TaskManagementSystem.infrastructure.EntityFramework;
+using Intaker.TaskManagementSystem.infrastructure.EntityFramework.TaskManagement.Repository;
+using MassTransit;
+using MediatR.Extensions.FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 namespace Intaker.TaskManagementSystem.api
 {
@@ -6,31 +13,58 @@ namespace Intaker.TaskManagementSystem.api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var configuration = builder.Configuration;
+            var services = builder.Services;
 
-            // Add services to the container.
+            services.AddControllers()
+                .AddMvcOptions(options =>
+                {
+                    options.Conventions.Add(new RouteTokenTransformerConvention(new LowercaseRouteTransformer()));
+                });
+            services.AddEndpointsApiExplorer();
+            services.AddOpenApi();
+            services.AddMassTransit(config =>
+            {
+                config.UsingAzureServiceBus((ctx, cfg) =>
+                {
+                    cfg.Host(configuration.GetConnectionString("AzureServiceBus"));
+                });
+            });
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+            services.AddFluentValidation([typeof(Program).Assembly]);
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            });
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            services.AddScoped<ITaskRepository, TaskRepository>();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                app.MapOpenApi();
+                app.MapScalarApiReference(options =>
+                {
+                    options.Title = "intaker-taskManagement-api";
+                    options.Theme = ScalarTheme.Kepler;
+                    options.HideDownloadButton = true;
+                });
             }
 
+            app.UseCustomExceptionMiddleware();
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
+        }
+
+        private class LowercaseRouteTransformer : IOutboundParameterTransformer
+        {
+            public string? TransformOutbound(object? value)
+            {
+                return value?.ToString()?.ToLowerInvariant();
+            }
         }
     }
 }

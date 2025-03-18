@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Intaker.TaskManagementSystem.domain.Shared;
 using Microsoft.EntityFrameworkCore;
 using Task = Intaker.TaskManagementSystem.domain.TaskManagement.Task;
 using TaskStatus = Intaker.TaskManagementSystem.domain.TaskManagement.TaskStatus;
@@ -12,7 +13,7 @@ namespace Intaker.TaskManagementSystem.infrastructure.EntityFramework
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.Load("Domain"));
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(Task).Assembly);
 
             var migrationDate = DateTimeOffset.UtcNow;
             modelBuilder.Entity<Task>().HasData([
@@ -65,6 +66,29 @@ namespace Intaker.TaskManagementSystem.infrastructure.EntityFramework
                     UpdatedAt = migrationDate
                 }
             ]);
+        }
+
+        public override int SaveChanges()
+        {
+            UpdateTimestamps();
+            return base.SaveChanges();
+        }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            UpdateTimestamps();
+            return await base.SaveChangesAsync(cancellationToken);
+        }
+
+        private void UpdateTimestamps()
+        {
+            var entities = ChangeTracker.Entries<BaseEntity>()
+                .Where(e => e.State is EntityState.Modified or EntityState.Added);
+
+            foreach (var entity in entities)
+            {
+                entity.Entity.UpdatedAt = DateTime.UtcNow;
+            }
         }
     }
 }

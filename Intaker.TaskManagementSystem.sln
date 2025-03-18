@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagementSyste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagementSystem.infrastructure", "Intaker.TaskManagementSystem.infrastructure\Intaker.TaskManagementSystem.infrastructure.csproj", "{0E8CDF5A-52B2-4F8C-A8C3-7DCCB359E4A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{D00CB88E-F091-4ED3-8464-B3862F216B37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagement.EmailNotification.api", "Intaker.TaskManagement.EmailNotification.api\Intaker.TaskManagement.EmailNotification.api.csproj", "{336B50C0-5260-4105-8219-344117EB0B5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagement.Contracts", "Intaker.TaskManagement.Contracts\Intaker.TaskManagement.Contracts.csproj", "{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +35,25 @@ Global
 		{0E8CDF5A-52B2-4F8C-A8C3-7DCCB359E4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E8CDF5A-52B2-4F8C-A8C3-7DCCB359E4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E8CDF5A-52B2-4F8C-A8C3-7DCCB359E4A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{336B50C0-5260-4105-8219-344117EB0B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{336B50C0-5260-4105-8219-344117EB0B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{336B50C0-5260-4105-8219-344117EB0B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{336B50C0-5260-4105-8219-344117EB0B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2AEF8E61-E649-48A5-ADB2-CB26A3F526C7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{13F182D8-8E98-4FF8-8256-B34B9CFF63B2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{0E8CDF5A-52B2-4F8C-A8C3-7DCCB359E4A7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D00CB88E-F091-4ED3-8464-B3862F216B37} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{336B50C0-5260-4105-8219-344117EB0B5C} = {D00CB88E-F091-4ED3-8464-B3862F216B37}
+		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2} = {D00CB88E-F091-4ED3-8464-B3862F216B37}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6206687C-3C57-4213-964D-26532DD039B6}
