@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/.idea/.idea.Intaker.TaskManagementSystem/.idea/encodings.xml
+/.idea/.idea.Intaker.TaskManagementSystem/.idea/indexLayout.xml
+/.idea/.idea.Intaker.TaskManagementSystem/.idea/vcs.xml
