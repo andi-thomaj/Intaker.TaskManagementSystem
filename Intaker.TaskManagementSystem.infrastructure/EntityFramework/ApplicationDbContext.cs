@@ -15,7 +15,7 @@ namespace Intaker.TaskManagementSystem.infrastructure.EntityFramework
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(Task).Assembly);
 
-            var migrationDate = DateTimeOffset.UtcNow;
+            var migrationDate = new DateTimeOffset(2025, 3, 18, 15, 30, 45, TimeSpan.Zero);
             modelBuilder.Entity<Task>().HasData([
                 new Task
                 {

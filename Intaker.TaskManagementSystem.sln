@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagementSystem.api", "Intaker.TaskManagementSystem.api\Intaker.TaskManagementSystem.api.csproj", "{2AEF8E61-E649-48A5-ADB2-CB26A3F526C7}"
 EndProject
@@ -16,6 +16,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagement.EmailNotification.api", "Intaker.TaskManagement.EmailNotification.api\Intaker.TaskManagement.EmailNotification.api.csproj", "{336B50C0-5260-4105-8219-344117EB0B5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagement.Contracts", "Intaker.TaskManagement.Contracts\Intaker.TaskManagement.Contracts.csproj", "{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5951AFDF-682A-446E-A9C6-ADE357C49A75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagementSystem.api.IntegrationTests", "Intaker.TaskManagementSystem.api.IntegrationTests\Intaker.TaskManagementSystem.api.IntegrationTests.csproj", "{BA02AEC8-3282-46FB-834D-AADFC774A0B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intaker.TaskManagementSystem.UnitTests", "Intaker.TaskManagementSystem.UnitTests\Intaker.TaskManagementSystem.UnitTests.csproj", "{04ACDECD-C6F2-4C27-BB2B-B6935EC273BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +49,14 @@ Global
 		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA02AEC8-3282-46FB-834D-AADFC774A0B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA02AEC8-3282-46FB-834D-AADFC774A0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA02AEC8-3282-46FB-834D-AADFC774A0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA02AEC8-3282-46FB-834D-AADFC774A0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04ACDECD-C6F2-4C27-BB2B-B6935EC273BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04ACDECD-C6F2-4C27-BB2B-B6935EC273BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04ACDECD-C6F2-4C27-BB2B-B6935EC273BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04ACDECD-C6F2-4C27-BB2B-B6935EC273BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +68,8 @@ Global
 		{D00CB88E-F091-4ED3-8464-B3862F216B37} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{336B50C0-5260-4105-8219-344117EB0B5C} = {D00CB88E-F091-4ED3-8464-B3862F216B37}
 		{076B3828-6A94-4A0A-97F7-F511CE1FF0A2} = {D00CB88E-F091-4ED3-8464-B3862F216B37}
+		{BA02AEC8-3282-46FB-834D-AADFC774A0B9} = {5951AFDF-682A-446E-A9C6-ADE357C49A75}
+		{04ACDECD-C6F2-4C27-BB2B-B6935EC273BD} = {5951AFDF-682A-446E-A9C6-ADE357C49A75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6206687C-3C57-4213-964D-26532DD039B6}

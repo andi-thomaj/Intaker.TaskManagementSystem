@@ -50,6 +50,8 @@ namespace Intaker.TaskManagementSystem.api
                     options.Theme = ScalarTheme.Kepler;
                     options.HideDownloadButton = true;
                 });
+
+                app.ApplyMigrations();
             }
 
             app.UseCustomExceptionMiddleware();

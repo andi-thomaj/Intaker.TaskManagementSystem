@@ -7,7 +7,7 @@ namespace Intaker.TaskManagementSystem.api.Controllers.TaskManagement
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TaskController(IMediator mediator) : ControllerBase
+    public class TasksController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAllTasks()

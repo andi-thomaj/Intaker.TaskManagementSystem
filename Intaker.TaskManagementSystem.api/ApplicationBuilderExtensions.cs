@@ -1,8 +1,22 @@
-﻿using System.Text.Json;
+﻿using Intaker.TaskManagementSystem.infrastructure.EntityFramework;
 using Intaker.TaskManagementSystem.infrastructure.Helpers;
+using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace Intaker.TaskManagementSystem.api
 {
+    internal static class ApplicationBuilderExtensions
+    {
+        public static void ApplyMigrations(this IApplicationBuilder app)
+        {
+            using IServiceScope scope = app.ApplicationServices.CreateScope();
+
+            using ApplicationDbContext dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+            dbContext.Database.Migrate();
+        }
+    }
+
     public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
     {
         public async Task InvokeAsync(HttpContext context)
