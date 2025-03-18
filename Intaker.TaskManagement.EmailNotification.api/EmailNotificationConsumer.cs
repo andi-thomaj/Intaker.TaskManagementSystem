@@ -24,10 +24,10 @@ namespace Intaker.TaskManagement.EmailNotification.api
 
             await Task.CompletedTask;
 
-            if (new Random().Next(0, 3) == 0)
-            {
-                throw new Exception("Transient failure occurred!");
-            }
+            // if (new Random().Next(0, 3) == 0)
+            // {
+            //     throw new Exception("Transient failure occurred!");
+            // }
         }
     }
 }
